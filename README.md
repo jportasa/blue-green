@@ -5,7 +5,13 @@ We spawn deployment-B and check that all PODS work with Liveness k8s property.
 Benchmark starts against the service that points to Deployment-B
 Next we switch the service to point to selector of Deployment-B
 
+
+
 # Bootstrap
+
+## Requirements in your local
+
+docker, kubectl, kind, wrk, make
 
 ## Create local k8s cluster
 Use kind (https://kind.sigs.k8s.io/) to create a local k8s cluster over Docker.
