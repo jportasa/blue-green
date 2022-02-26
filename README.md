@@ -1,9 +1,9 @@
 # Design overview
 
-We have one k8s service that has as selector pointin to deployment-A.
-We spawn deployment-B and check that all PODS work with Liveness k8s property.
-Benchmark starts against the service that points to Deployment-B
-Next we switch the service to point to selector of Deployment-B
+- We have one k8s service that has as selector pointin to deployment-A.
+- We spawn deployment-B and check that all PODS work with Liveness k8s property.
+- Benchmark starts against the service that points to Deployment-B
+- Next we switch the service to point to selector of Deployment-B
 
 
 
