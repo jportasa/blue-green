@@ -2,7 +2,6 @@
 
 benchmark(){
     echo "[DEPLOY TEST] Benchmark test to green environment (TODO check results and stop deployment if http failures)"
-    rm -rf output.txt
     wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html
     # TODO process output values and compare with limits
 }
