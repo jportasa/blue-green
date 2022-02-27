@@ -64,7 +64,7 @@ http://localhost:30950/
 ## Test green deployment before get traffic
 I am doing two tests before switching green to blue:
 
-The deployment manifest has a Liveness probe to check each nginx can serve traffic. We can add check_health there:
+1. The deployment manifest has a Liveness probe to check each nginx can serve traffic. We can add check_health there:
 ```
 (...)
     livenessProbe:
@@ -73,7 +73,7 @@ The deployment manifest has a Liveness probe to check each nginx can serve traff
         - cat
         - /tmp/check_health
 ```
-I am doing in "make bluegreen"  
+2. wrk benchmark in script k8s-blue-green-rollout.sh
 ```
 wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html
 ```
