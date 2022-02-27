@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 benchmark(){
     echo "[DEPLOY TEST] Benchmark test to green environment (TODO check results and stop deployment if http failures)"
     wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html
