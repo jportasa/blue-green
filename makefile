@@ -18,6 +18,7 @@ IMAGEFULLNAME=${IMAGENAME}:${NEW_VERSION}
 
 build:
 	    @docker build --pull --build-arg ALP_VER=${alpver} -t ${IMAGEFULLNAME} .
+	    kind load docker-image nginx-lokalise:${NEW_VERSION}
 
 bluegreen:
 	    @./k8s-blue-green-rollout.sh ${SERVICE_NAME} ${DEPLOYMENT_NAME} ${NEW_VERSION} ${HEALTH_COMMAND} ${HEALTH_SECONDS} ${NAMESPACE} ${URL}

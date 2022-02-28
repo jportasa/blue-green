@@ -22,10 +22,6 @@ Create webserver docker image with the app code that is in /src:
 ```
 make build
 ```
-Make the image available to kind cluster nodes
-```
-kind load docker-image nginx-lokalise:v0.1.0
-```
 Spawn blue k8s deployment
 ```
 kubectl create namespace lokalise
@@ -48,10 +44,6 @@ Change makefile var: NEW_VERSION=v0.2.0
 Build new image: 
 ```
 make build
-```
-Make the new image available to kind cluster nodes:
-```
-kind load docker-image nginx-lokalise:v0.2.0
 ```
 Run deploy:
 ```
