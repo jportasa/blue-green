@@ -38,7 +38,6 @@ mainloop(){
 
     echo "[DEPLOY CLEANUP] Removing previous color (service and deployment)"
     kubectl delete deployment $DEPLOYMENT_NAME-$CURRENT_VERSION --namespace=${NAMESPACE}
-    kubectl delete service ${SERVICE_NAME}-green --namespace=${NAMESPACE}
 }
 
 SERVICE_NAME=$1

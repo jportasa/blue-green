@@ -53,6 +53,16 @@ From your browser try:
 
 http://localhost:30950/
 
+## Rollback
+
+If you want to rollback from v0.2.0 t v0.1.0 you can do it:
+
+Changing in makefile NEW_VERSION=v0.1.0
+
+```
+make bluegreen
+```
+
 ## Test green deployment before get traffic
 I am doing two tests before switching green to blue:
 
