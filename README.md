@@ -18,7 +18,7 @@ Create a local k8s cluster over Docker.
 kind create cluster --config=kind-cluster/config.yaml
 ````
 ## Deploy 1st web app version
-Create webserver docker image with the app code that is in /src:
+Create webserver docker image with the app code that is in /src, we will call it v0.1.0:
 ```
 make build
 ```
