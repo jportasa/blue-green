@@ -9,7 +9,7 @@
 # Bootstrap
 ## Requirements in your local
 
-docker, kubectl, kind (https://kind.sigs.k8s.io/), wrk, make.
+docker, kubectl, kind (https://kind.sigs.k8s.io/), wrk (put it in your path), make.
 
 ## Create local k8s cluster
 Create a local k8s cluster over Docker.
