@@ -19,7 +19,7 @@ benchmark(){
 ...$(tput setaf 1)errors_write=$(tput setab 7)$errors_write$(tput sgr 0)
 ...$(tput setaf 1)errors_timeout=$(tput setab 7)$errors_timeout$(tput sgr 0)
 
-$(tput setaf 3)TODO: Adding a stop in the pipeline is adding an "if", I haven't done to not confuse when you run it.$(tput sgr 0)
+$(tput setaf 3)TODO: Adding a stop if errors in the wrk output is adding an "if", I haven't done to not confuse when you run it.$(tput sgr 0)
 EOF
 }
 
