@@ -4,8 +4,23 @@ set -e
 
 benchmark(){
     echo "[DEPLOY TEST] Benchmark test to green environment (TODO check results and stop deployment if http failures)"
-    wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html
-    # TODO process output values and compare with limits
+    rm -rf output.txt
+    wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html | tee output.txt
+    # Parsing the output of wrk
+    errors_connect=$(cat output.txt| grep errors | awk '{print $4}' | sed 's/,//')
+    errors_read=$(cat output.txt| grep errors | awk '{print $6}' | sed 's/,//')
+    errors_write=$(cat output.txt| grep errors | awk '{print $8}' | sed 's/,//')
+    errors_timeout=$(cat output.txt| grep errors | awk '{print $10}' | sed 's/,//')
+
+    cat << EOF
+[DEPLOY TEST RESULT] $WRK Socket errors results:
+...$(tput setaf 1)errors_connect=$(tput setab 7)$errors_connect$(tput sgr 0)
+...$(tput setaf 1)errors_read=$(tput setab 7)$errors_read$(tput sgr 0)
+...$(tput setaf 1)errors_write=$(tput setab 7)$errors_write$(tput sgr 0)
+...$(tput setaf 1)errors_timeout=$(tput setab 7)$errors_timeout$(tput sgr 0)
+
+$(tput setaf 3)TODO: Adding a stop in the pipeline is adding an "if", I haven't done to not confuse when you run it.$(tput sgr 0)
+EOF
 }
 
 cancel(){

@@ -22,10 +22,9 @@ Create webserver docker image with the app code that is in /src, we will call it
 ```
 make build
 ```
-Spawn blue k8s deployment
+Bootstrap blue k8s deployment
 ```
-kubectl create namespace lokalise
-kubectl apply -f ./manifests -n lokalise
+make bootstrap-blue
 ```
 Check PODS are running
 ```
@@ -39,7 +38,7 @@ http://localhost:30950/
 
 Change contents of src/index.html
 
-Change makefile var: NEW_VERSION=v0.2.0
+**Change makefile var: NEW_VERSION=v0.2.0**
 
 Build new image: 
 ```
@@ -47,7 +46,7 @@ make build
 ```
 Run deploy:
 ```
-make bluegreen
+make blue-green
 ```
 From your browser try:
 
@@ -67,7 +66,7 @@ make bluegreen
 I am doing two tests before switching green to blue:
 
 1. The deployment manifest has a livenessProbe to check each nginx can serve traffic.
-2. wrk benchmark in script k8s-blue-green-rollout.sh
+2. wrk benchmark in script cicd/k8s-blue-green-rollout.sh
 ```
 wrk -t10 -c40 -d10s http://127.0.0.1:30951/index.html
 ```
