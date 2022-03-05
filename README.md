@@ -34,7 +34,7 @@ From your browser try:
 
 http://localhost:30950/
 
-## Blue green deploy
+# Blue green deploy
 
 Change contents of src/index.html
 
