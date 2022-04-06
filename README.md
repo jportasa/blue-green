@@ -1,4 +1,4 @@
-# Blue-green design overview
+# blue-green design overview
 
 1. We have one k8s service-blue that has as selector pointing to deployment-blue (app v0.1.0).
 2. We spawn service-green and deployment-green (app v0.2.0) and check that all PODS work with Liveness k8s property.
